@@ -1,0 +1,4 @@
+type,category,price,name,author,isbn,pages,publisher,poster_url
+a,sách văn học,178000,Combo Tiệm Đồ Cổ Á Xá,Huyền Sắc,10000001,36,Kim Đồng,"https://www.vinabook.com/images/thumbnails/product/240x/235884_p72159mbo.jpg"
+b,sách kinh tế,120000,Quản trị kinh doanh kiểu Jack,Triêụ vĩ,10000002,55,Giao thông vận tải,"https://www.vinabook.com/images/thumbnails/product/240x/235504_p72119mimg170.jpg"
+c,sách nuôi dạy trẻ,75000,Con mẹ thật giỏi,Trương Bình,10000003,44,Nxb Trẻ,"https://www.vinabook.com/images/thumbnails/product/240x/233261_p71773mbiatruoc.jpg"

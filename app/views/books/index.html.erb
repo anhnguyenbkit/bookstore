@@ -1,0 +1,23 @@
+<div class="row">
+  <% @books.each do |book| %>
+    <div class="col-sm-6 col-md-5">
+      <div class="thumbnail">
+        <%= link_to book do %>
+          <%= image_tag(book.poster, class: "image img-reponsive") %>
+        <% end %>
+        <div class="book-info">
+          <div class="name">
+            <h6><%= book.name %></h6>
+          </div>
+           <p class="author"><%= book.author %></p>
+           <p class="price"><%= book.price %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<% if false %>
+<%= link_to 'New Book', new_book_path %>
+<% end %>
