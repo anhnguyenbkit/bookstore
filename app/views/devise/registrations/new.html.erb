@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <fieldset>
+        <legend class="">Register here</legend>
+        
+        <div class="form-group">
+          <div class="col-md-4">
+            <%= f.email_field :email, autofocus: true, placeholder: "Insert your Email", class: "form-control input-md" %>
+            <span class="help-block"> </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <div class="col-md-4">
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Insert your Password", class: "form-control input-md" %>
+            <span class="help-block"> </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-4">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm your Password", class: "form-control input-md" %>
+            <span class="help-block"> </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="singlebutton"> </label>
+          <div class="col-md-4">
+            <%= f.submit "Sign up", class: "btn btn-primary" %>
+          </div>
+        </div>
+        
+      </fieldset>
+    <% end %>
+  </div><!-- row -->
+</div><!-- container -->
+<%= render "devise/shared/links" %>

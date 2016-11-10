@@ -49,3 +49,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Integrate Twitter Bootstrap 4 with Rails 5
 gem 'bootstrap', '~> 4.0.0.alpha5'
+
+#Authentication
+gem 'devise'
+
+#Authorization
+gem 'pundit'
