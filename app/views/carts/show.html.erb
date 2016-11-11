@@ -1,0 +1,46 @@
+<div class="container">
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <p> You've selected <span class="cart-count"><%=current_user.cart_count%></span> books!</p>
+      </tr>
+      <tr>
+        <th style="width:50%">Book</th>
+        <th style="width:10%">Price</th>
+        <th style="width:10%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_books.each do |book| %>
+        <tr class="cart-book">
+          <td data-th="Book">
+            <div class="row">
+              <div class="col-sm-2 hidden-xs">
+                <%= link_to book do %>
+                  <%= image_tag(book.poster, class: "book-cart-icon img-responsive") %>
+                <% end %>
+              </div>
+              <div class="col-sm-10">
+                <h4 class="nomargin"><%= book.name %></h4>
+              </div>
+            </div>
+          </td>
+          <td data-th="Price"><%= book.price %></td>
+          <td class="actions" data-th="">
+            <%= link_to "", data: {targetUrl: remove_from_cart_path(movie)} do %>
+              <button class="btn btn-danger btn-sm book-cart-remove"><i class="fa fa-trash-o"></i></button>
+            <% end %>
+          </td>
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><%= link_to root_path %><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+        <td colspan="2" class="hidden-xs"></td>
+        <td class="hidden-xs text-center"><strong>Total <%= @cart_books.sum_fee %></strong></td>
+        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

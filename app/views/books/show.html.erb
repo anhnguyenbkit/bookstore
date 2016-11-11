@@ -25,6 +25,13 @@
   <%= @book.publisher %>
 </p>
 
+<% if signed_in? && !current_user.admin? %>
+  <%= link_to "", class: "btn btn-default btn-sm", data: {target: @cart_action, addUrl: add_to_cart_path(@book), removeUrl: remove_from_cart_path(@book)} do %>
+    <i class="fa fa-shopping-cart"></i>
+    <span><%= @cart_action %></span> Cart
+  <% end %>
+<% end %>
+
 <% if  false %>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <% end %>

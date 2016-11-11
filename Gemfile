@@ -55,3 +55,7 @@ gem 'devise'
 
 #Authorization
 gem 'pundit'
+
+#Memcache server
+gem 'redis', '~> 3.0.1'
+gem 'hiredis', '~> 0.6.0'

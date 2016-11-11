@@ -11,6 +11,12 @@
           </div>
            <p class="author"><%= book.author %></p>
            <p class="price"><%= book.price %></p>
+           <% if signed_in? && current_user.admin? %>
+             <%= link_to 'Edit', edit_book_path(book) %> |
+             <%= link_to 'Destroy', book_path(book),
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+           <% end %>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     flash[:success] = "OK!"
     redirect_to root_path
   end
+
   def admin?
     has_role?(:admin)
   end
