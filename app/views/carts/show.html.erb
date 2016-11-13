@@ -27,7 +27,7 @@
           </td>
           <td data-th="Price"><%= book.price %></td>
           <td class="actions" data-th="">
-            <%= link_to "", data: {targetUrl: remove_from_cart_path(movie)} do %>
+            <%= link_to "", data: {targetUrl: remove_from_cart_path(book)} do %>
               <button class="btn btn-danger btn-sm book-cart-remove"><i class="fa fa-trash-o"></i></button>
             <% end %>
           </td>
@@ -36,9 +36,13 @@
     </tbody>
     <tfoot>
       <tr>
-        <td><%= link_to root_path %><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+        <td>
+            <%= link_to "books", @books do %>
+            <i class="fa fa-angle-left"></i> Continue Shopping
+            <% end %>
+        </td>
         <td colspan="2" class="hidden-xs"></td>
-        <td class="hidden-xs text-center"><strong>Total <%= @cart_books.sum_fee %></strong></td>
+        <td class="hidden-xs text-center"><strong>Total <%= sum_fee %></strong></td>
         <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
       </tr>
     </tfoot>

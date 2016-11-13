@@ -12,29 +12,54 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require bootstrap-sprockets
 
-$(window).load ->
-  $('a[data-target]').click (e) ->
-    e.preventDefault()
-    $this = $(this)
-    if $this.data('target') == "Add to'
-      url = $this.data('addurl')
-      new_target = "Remove from"
-    else
-      url = $this.data('removeurl')
-      new_target = "Add to"
-    $.ajax url: url, type: 'put', success: (data) ->
-      $('.cart-count').html(data)
-      $this.find('span').html(new_target)
-      $this.data('target', new_target)
+(function() {
+  $(window).load(function() {
+    return $('a[data-target]').click(function(e) {
+      var $this, new_target, url;
+      e.preventDefault();
+      $this = $(this);
+      console.log($this.data('target'));
+      if ($this.data('target') === 'Add to') {
+        url = $this.data('addurl');
+        new_target = "Remove from";
+      } else {
+        //console.log("else");
+        url = $this.data('removeurl');
+        new_target = "Add to";
+      }
+      return $.ajax({
+        url: url,
+        type: 'put',
+        success: function(data) {
+          $('.cart-count').html(data);
+          $this.find('span').html(new_target);
+          return $this.data('target', new_target);
+        }
+      });
+    });
+  });
 
-$(window).load ->
-  $('#cart .book-cart-remove').click (e) ->
-    e.preventDefault()
-    $this = $(this).closet('a')
-    url = $this.data('targeturl')
-    $.ajax url: url, type: 'put', success: (data) ->
-      $('.cart-count').html(data)
-      $this.closet('.cart-book').slideUp()
+}).call(this);
+
+(function() {
+  $(window).load(function() {
+    return $('#cart .book-cart-remove').click(function(e) {
+      //console.log("remove");
+      var $this, url;
+      e.preventDefault();
+      $this = $(this).closest('a');
+      url = $this.data('targeturl');
+      return $.ajax({
+        url: url,
+        type: 'put',
+        success: function(data) {
+          $('.cart-count').html(data);
+          return $this.closest('.cart-book').slideUp();
+        }
+      });
+    });
+  });
+
+}).call(this);

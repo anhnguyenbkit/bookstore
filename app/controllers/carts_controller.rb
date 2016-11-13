@@ -7,22 +7,25 @@ class CartsController < ApplicationController
   end
 
   def add
+    logger.debug("-----> add here")
     $redis.sadd current_user_cart, params[:book_id]
     render json: current_user.cart_count, status: 200
   end
 
   def remove
-    $redis.srm current_user_cart, params[:book_id]
+    logger.debug("-----> remove here")
+    $redis.srem current_user_cart, params[:book_id]
     render json: current_user.cart_count, status: 200
   end
 
   def sum_fee
     fees = 0.0
-    Book.all.each |book| do
+    @cart_books.each do |book|
       fees += book.price
     end
-    return fees 
+    return fees
   end
+  helper_method :sum_fee
 
   private
 

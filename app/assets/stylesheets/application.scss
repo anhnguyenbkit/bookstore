@@ -12,8 +12,13 @@
  *
  */
 
+
+
  /* bootrap */
 @import "bootstrap";
+
+/* font-awesome */
+@import "font-awesome";
 
 .image {
   margin-left:0%;
@@ -42,14 +47,14 @@
     width:36%;
     margin:1.5em 0;
   }
-  
+
   .actions .btn-info{
     float:left;
   }
   .actions .btn-danger{
     float:right;
   }
-  
+
   table#cart thead { display: none; }
   table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
   table#cart tbody tr td:first-child { background: #333; color: #fff; }
@@ -57,10 +62,10 @@
     content: attr(data-th); font-weight: bold;
     display: inline-block; width: 8rem;
   }
-  
-  
-  
+
+
+
   table#cart tfoot td{display:block; }
   table#cart tfoot td .btn{display:block;}
-  
+
 }

@@ -11,13 +11,13 @@
       <% if current_user %>
         <li class="nav-item">
           Admin: <strong><%= current_user.admin? %></strong><br>
-          <%= link_to "Toggle admin rights", user_path(current_user), method: :patch, class: "btn btn-info" %>          
+          <%= link_to "Toggle admin rights", user_path(current_user), method: :patch, class: "btn btn-info" %>
         </li>
         <li class="nav-item">
           <%= link_to cart_path(current_user.id) do %>
             <i class="fa fa-shopping-cart"></i>
             My Cart
-            (<span class=""><%= current_user.cart_count %></span>)
+            (<span class="cart-count"><%= current_user.cart_count %></span>)
           <% end %>
         </li>
       <% end %>

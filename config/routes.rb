@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:update]
-  resources :cart, only: [:show] do
+
+  resource :cart, only: [:show] do
     put 'add/:book_id', to: 'carts#add', as: :add_to
     put 'remove/:book_id', to: 'carts#remove', as: :remove_from
   end
