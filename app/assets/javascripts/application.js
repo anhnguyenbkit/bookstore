@@ -17,7 +17,7 @@
 (function() {
   $(window).load(function() {
     return $('a[data-target]').click(function(e) {
-      var $this, new_target, url;
+      var $this, new_target, url, objJson;
       e.preventDefault();
       $this = $(this);
       console.log($this.data('target'));
@@ -33,7 +33,8 @@
         url: url,
         type: 'put',
         success: function(data) {
-          $('.cart-count').html(data);
+          objJson = JSON.parse(this.responseText);
+          $('.cart-count').html(objJson.cart);
           $this.find('span').html(new_target);
           return $this.data('target', new_target);
         }
@@ -47,7 +48,7 @@
   $(window).load(function() {
     return $('#cart .book-cart-remove').click(function(e) {
       //console.log("remove");
-      var $this, url;
+      var $this, url, objJson;
       e.preventDefault();
       $this = $(this).closest('a');
       url = $this.data('targeturl');
@@ -55,7 +56,10 @@
         url: url,
         type: 'put',
         success: function(data) {
-          $('.cart-count').html(data);
+          objJson = JSON.parse(this.responseText);
+          console.log(objJson);
+          $('.cart-count').html(objJson.cart);
+          $('.cart-total-fee').html(objJson.fee);
           return $this.closest('.cart-book').slideUp();
         }
       });
@@ -63,3 +67,26 @@
   });
 
 }).call(this);
+
+//(function() {
+//  $(window).load(function() {
+//    return $('#cart .book-cart-remove').click(function(e) {
+//      //console.log("remove");
+//      var $this, url;
+//      e.preventDefault();
+//      $this = $(this).closest('a');
+//      url = $this.data('targeturl');
+//      return $.ajax({
+//        url: '/cart/sum_fee_json',
+//        type: 'get',
+//        success: function(data) {
+//          $('.cart-total-fee').html(data);
+//          $this.find('span').html();
+//          console.log($this.data('targeturl'));
+//          return $this.data('targeturl');
+//        }
+//      });
+//    });
+//  });
+//
+//}).call(this);

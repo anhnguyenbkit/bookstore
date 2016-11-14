@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :cart, only: [:show] do
     put 'add/:book_id', to: 'carts#add', as: :add_to
     put 'remove/:book_id', to: 'carts#remove', as: :remove_from
+    get :sum_fee_json, on: :collection
   end
 
   root 'books#index'

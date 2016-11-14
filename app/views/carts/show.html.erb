@@ -34,7 +34,7 @@
       </tr>
       <% end %>
     </tbody>
-    <tfoot>
+    <tfoot class="cart-total">
       <tr>
         <td>
             <%= link_to "books", @books do %>
@@ -42,7 +42,7 @@
             <% end %>
         </td>
         <td colspan="2" class="hidden-xs"></td>
-        <td class="hidden-xs text-center"><strong>Total <%= sum_fee %></strong></td>
+        <td class="hidden-xs text-center"><strong>Total <span class="cart-total-fee"><%= sum_fee %></span></strong></td>
         <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
       </tr>
     </tfoot>
