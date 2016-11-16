@@ -28,18 +28,49 @@
   width: 100%;
 }
 
-.navbar-nav
+.navbar .navbar-branch {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.nav-masthead {
+  float: right;
+  display: inline;
+}
 
 .navbar .navbar-nav {
   width: 100%;
   margin: 0 auto;
 }
 
-.table>tbody>tr>td, .table>tfoot>tr>td{
-    vertical-align: middle;
+.navbar .navbar-nav .nav-item {
+  margin: 10px 10px 10px 10px;
 }
+
+.header-search {
+  width: 450px;
+  display: inline;
+}
+
+.register-body,
+.login-body,
+.book-list {
+  margin-top: 5%;
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td {
+  vertical-align: middle;
+}
+
+.col-md-6 {
+  float: none !important;
+}
+
 @media screen and (max-width: 600px) {
-    table#cart tbody td .form-control{
+  table#cart tbody td .form-control {
     width:20%;
     display: inline !important;
   }
