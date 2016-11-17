@@ -1,50 +1,52 @@
 <nav class="navbar navbar-dark bg-inverse navbar-inverse navbar-fixed-top nomal">
   <div class="container">
-  <%= link_to "Book Store", root_path, class: "navbar-brand" %>
-  <form class="form-inline header-search">
-      <input class="form-control" type="text" placeholder="Search">
-      <button class="btn btn-success-outline" type="submit">Search</button>
-    </form>
-  <div class="nav-masthead">
-  <ul class="nav navbar-nav">
-    <%if signed_in?%>
-      <li class="nav-item">
-         <%= link_to current_user.email, edit_user_registration_path %>
-      </li>
-      <li class="nav-item">
-         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      </li>
-      <% if current_user %>
-        <li class="nav-item">
-          <%= link_to cart_path(current_user.id) do %>
-            <i class="fa fa-shopping-cart"></i>
-            My Cart
-            (<span class="cart-count"><%= current_user.cart_count %></span>)
-          <% end %>
-        </li>
-        <% if current_user.email == "admin@gmail.com" %>
-        <li class="nav-item">
-          <div class="row">
-             <div class="col-md-2">
-               <p> Admin: <strong><%= current_user.admin? %></strong></p>
-             </div>
-             <div class="col-md-1">
-               <%= link_to "Toggle admin rights", user_path(current_user), method: :patch, class: "btn btn-info" %>
-	     </div> 
-           </div>
-        </li>
-        <% end %>
-      <% end %>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "Register", new_user_registration_path %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Login", new_user_session_path %>
-      </li>
+    <%= link_to "Book Store", root_path, class: "navbar-brand" %>
+    
+    <%= form_tag(books_path, :method => "get", id: "search-form", :class => "header-search form-inline") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Books", class: "form-control" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-success-outline"%>
     <% end %>
-  </ul>
-  
-  </div> <!-- nav-masthead -->
+    
+    <div class="nav-masthead">
+      <ul class="nav navbar-nav">
+        <%if signed_in?%>
+          <li class="nav-item">
+             <%= link_to current_user.email, edit_user_registration_path %>
+          </li>
+          <li class="nav-item">
+             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
+          <% if current_user %>
+            <li class="nav-item">
+              <%= link_to cart_path(current_user.id) do %>
+                <i class="fa fa-shopping-cart"></i>
+                My Cart
+                (<span class="cart-count"><%= current_user.cart_count %></span>)
+              <% end %>
+            </li>
+            <% if current_user.email == "admin@gmail.com" %>
+            <li class="nav-item">
+              <div class="row">
+                 <div class="col-md-2">
+                   <p> Admin: <strong><%= current_user.admin? %></strong></p>
+                 </div>
+                 <div class="col-md-1">
+                   <%= link_to "Toggle admin rights", user_path(current_user), method: :patch, class: "btn btn-info" %>
+    	     </div> 
+               </div>
+            </li>
+            <% end %>
+          <% end %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Register", new_user_registration_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path %>
+          </li>
+        <% end %>
+      </ul>
+    
+    </div> <!-- nav-masthead -->
   </div>
 </nav>
