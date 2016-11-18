@@ -65,4 +65,7 @@ gem 'redis', '~> 3.0.1'
 gem 'hiredis', '~> 0.6.0'
 
 #Font awesome
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+#Paperclip
+gem 'paperclip', '~> 5.0.0'

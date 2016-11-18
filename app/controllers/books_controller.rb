@@ -25,8 +25,8 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    authorize @book
     @book = Book.new
+    authorize @book
   end
 
   # GET /books/1/edit
