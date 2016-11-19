@@ -1,0 +1,2 @@
+class AddImageToBook < ApplicationRecord
+end
