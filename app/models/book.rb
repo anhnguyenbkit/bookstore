@@ -15,4 +15,6 @@ class Book < ApplicationRecord
     end
   end
   
-  def self.search(search) where("name LIKE ?", "%#{search}%") end end
+  def self.search(search) where("name LIKE ?", "%#{search}%") 
+  end
+end

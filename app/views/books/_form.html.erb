@@ -1,63 +1,113 @@
-<div class="form-body-content">
-<%= form_for @book, :html => { :multipart => true } do |f| %>
-  <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+<div class="container form-body-content">
+  
+    <h2> Create new book here </h2>
+    <%= form_for @book, :html => { :multipart => true, :class => "well form-horizontal" } do |f| %>
+      <% if book.errors.any? %>
+        <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
-      <ul>
-      <% book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+        <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </ul>
+      <% end %>
+      <fieldset>
+      <div class="form-group">
+        <%= f.label :type, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-pencil-square-o"></i></span>
+            <%= f.text_field :typeBook, placeholder: "Type book", class: "form-control" %>
+          </div>
+        </div>
       </div>
+
+      <div class="form-group">
+        <%= f.label :category, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+            <%= f.text_field :category, placeholder: "Category book", class: "form-control" %>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :price, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-usd"></i></span>
+            <%= f.text_field :price, placeholder: "Price book", class: "form-control" %>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+            <%= f.text_field :name, placeholder: "Name book", class: "form-control" %>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :author, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span>
+            <%= f.text_field :author, placeholder: "Author book", class: "form-control" %>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :isbn, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+            <%= f.text_field :isbn, placeholder: "ISBN book", class: "form-control" %>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :pages, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-newspaper-o"></i></span>
+            <%= f.number_field :pages, placeholder: "Number page of book", class: "form-control" %>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :publisher, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-podcast"></i></span>
+            <%= f.text_field :publisher, placeholder: "Publisher of book", class: "form-control" %>
+        </div>
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <%= f.label :image, class: "col-md-1 control-label" %>  
+        <div class="col-md-6 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-file-image-o"></i></span>
+            <%= f.file_field :image, class: "form-control" %>
+        </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="col-md-1">
+          <%= f.submit :class => 'btn btn-warning' %>
+        </div>
+      </div>
+      </fieldset>
     <% end %>
-
-    <div class="field">
-      <%= f.label :type %>
-      <%= f.text_field :typeBook %>
-    </div>
-
-    <div class="field">
-      <%= f.label :category %>
-      <%= f.text_area :category %>
-    </div>
-
-    <div class="field">
-      <%= f.label :price %>
-      <%= f.text_field :price %>
-    </div>
-
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_area :name %>
-    </div>
-
-    <div class="field">
-      <%= f.label :author %>
-      <%= f.text_area :author %>
-    </div>
-
-    <div class="field">
-      <%= f.label :isbn %>
-      <%= f.text_field :isbn %>
-    </div>
-
-    <div class="field">
-      <%= f.label :pages %>
-      <%= f.number_field :pages %>
-    </div>
-
-    <div class="field">
-      <%= f.label :publisher %>
-      <%= f.text_area :publisher %>
-    </div>
-
-    <div class="field">
-      <%= f.file_field :image, class: 'form-control'%>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+ 
 </div>

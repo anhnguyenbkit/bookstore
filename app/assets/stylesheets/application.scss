@@ -55,19 +55,33 @@
   display: inline;
 }
 
-.form-body-content,
+.form-body-content 
+{
+  margin-top: 7%;
+}
+
 .register-body,
 .login-body,
-.book-list {
-  margin-top: 20%;
+.book-list,
+.book-content,
+.alert-info,
+.list-cart,
+.edit-user {
+  margin-top: 10%;
 }
 
 .table>tbody>tr>td, .table>tfoot>tr>td {
   vertical-align: middle;
 }
 
-.col-md-6 {
+.col-md-6,
+.col-md-4 {
   float: none !important;
+}
+
+.book-cart-icon {
+  width: 50px;
+  height: 50px;
 }
 
 @media screen and (max-width: 600px) {

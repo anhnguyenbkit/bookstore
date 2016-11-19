@@ -3,7 +3,11 @@
     <div class="col-sm-6 col-md-5">
       <div class="thumbnail">
         <%= link_to book do %>
-          <%= image_tag(book.poster, class: "image img-reponsive") %>
+          <% if book.image? %>
+            <%= image_tag(book.image.url, class: "image img-reponsive") %>
+          <% else %>
+            <%= image_tag(book.poster, class: "image img-reponsive") %>
+          <% end %>
         <% end %>
         <div class="book-info">
           <div class="name">
@@ -13,7 +17,6 @@
            <p class="price"><%= book.price %></p>
            <% if signed_in? && current_user.admin? %>
              <%= link_to 'Edit', edit_book_path(book) %> |
-             <%= link_to 'New', new_book_path(book) %> |
              <%= link_to 'Destroy', book_path(book),
                  method: :delete,
                  data: { confirm: 'Are you sure?' } %>
@@ -25,6 +28,6 @@
 </div>
 
 
-<% if false %>
+<% if signed_in? && current_user.admin? %>
 <%= link_to 'New Book', new_book_path %>
 <% end %>

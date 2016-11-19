@@ -10,7 +10,6 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.integer :pages
       t.text :publisher
       t.string :poster_url
-      t.image :attachment
 
       t.timestamps
     end

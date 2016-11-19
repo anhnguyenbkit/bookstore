@@ -1,38 +1,44 @@
-<p id="notice"><%= notice %></p>
-<div class="row">
-  <div class="col-sm-8 col-md-8">
-    <%= image_tag @book.poster %>
+<div class="book-content" >
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-sm-8 col-md-8">
+      <% if @book.image? %>
+        <%= image_tag @book.image.url %>
+      <% else %>
+        <%= image_tag @book.poster %>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @book.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @book.name %>
+  </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
+  <p>
+    <strong>Author:</strong>
+    <%= @book.author %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @book.price %>
+  </p>
 
-<p>
-  <strong>Publisher:</strong>
-  <%= @book.publisher %>
-</p>
+  <p>
+    <strong>Publisher:</strong>
+    <%= @book.publisher %>
+  </p>
 
-<% if signed_in? && !current_user.admin? %>
-  <%= link_to "", class: "btn btn-default btn-sm", data: {target: @cart_action, addUrl: add_to_cart_path(@book), removeUrl: remove_from_cart_path(@book)} do %>
-    <i class="fa fa-shopping-cart"></i>
-    <span><%= @cart_action %></span> Cart
+  <% if signed_in? && !current_user.admin? %>
+    <%= link_to "", class: "btn btn-default btn-sm", data: {target: @cart_action, addUrl: add_to_cart_path(@book), removeUrl: remove_from_cart_path(@book)} do %>
+      <i class="fa fa-shopping-cart"></i>
+      <span><%= @cart_action %></span> Cart
+    <% end %>
   <% end %>
-<% end %>
 
-<% if  false %>
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<% end %>
-<%= link_to 'Back', books_path %>
+  <% if  false %>
+  <%= link_to 'Edit', edit_book_path(@book) %> |
+  <% end %>
+  <%= link_to 'Back', books_path %>
+</div>
