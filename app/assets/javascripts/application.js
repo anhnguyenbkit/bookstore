@@ -88,3 +88,13 @@
 //  });
 //
 //}).call(this);
+
+// $(document).ready(function() {
+//   $(".book-item").hover(function() {
+//     console.log("debug hover");
+//     var elId = $(this).attr("id");
+//     console.log(elId);
+//     $("#" + elId).after("abc");
+//   },
+//   function);
+// });

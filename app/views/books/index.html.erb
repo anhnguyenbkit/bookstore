@@ -2,16 +2,21 @@
   <% @books.each do |book| %>
     <div class="col-sm-6 col-md-5">
       <div class="thumbnail">
-        <%= link_to book do %>
-          <% if book.image? %>
-            <%= image_tag(book.image.url, class: "image img-reponsive") %>
-          <% else %>
-            <%= image_tag(book.poster, class: "image img-reponsive") %>
+        <div class="hover hovereffect">
+          <%= link_to book do %>
+            <% if book.image? %>
+              <%= image_tag(book.image.url, class: "image img-reponsive book-item") %>
+            <% else %>
+              <%= image_tag(book.poster, class: "image img-reponsive book-item") %>
+            <% end %>
           <% end %>
-        <% end %>
+          <div class="overlay"> 
+            <%= link_to 'Buy now', book, class: "btn btn-info btn-index-buy" %>
+          </div>
+        </div>
         <div class="book-info">
           <div class="name">
-            <h6><%= book.name %></h6>
+            <h6><strong><%= book.name %></strong></h6>
           </div>
            <p class="author"><%= book.author %></p>
            <p class="price"><%= book.price %></p>
