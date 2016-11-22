@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'carts/show'
 
-  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  devise_for :users, controllers: { sessions: 'users/sessions' }, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :books do
     collection do
       get 'search'

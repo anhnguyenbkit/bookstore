@@ -34,7 +34,7 @@
 }
 
 .nav-masthead {
-  float: right;
+  float: left;
   display: inline;
 }
 
@@ -50,6 +50,7 @@
 .header-search {
   width: 450px;
   display: inline;
+  float: left;
 }
 
 .form-body-content 
@@ -127,7 +128,7 @@
   position: relative;
   font-size: 17px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
+  /* background: rgba(0, 0, 0, 0.6); */
   float: left;
     margin: 0px;
     display: inline-block;
